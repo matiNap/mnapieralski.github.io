@@ -14,6 +14,11 @@ body {
   background-color: var(--bg-secondary);
 }
 
+a {
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
 body::-webkit-scrollbar {
   width: 0.3rem;
 }
