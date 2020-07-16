@@ -1,8 +1,9 @@
 import React from "react";
+
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export default ({ children }: Props) => {
-  return <li className="drawer-item">{children}</li>;
+  return <li className="menu-item">{children}</li>;
 };
