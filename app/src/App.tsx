@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import store, { persistedStore } from "./store";
 
 import { MAIN } from "./navRoutes";
-import Main from "./main";
+
 import Navigation from "./components/Navigation";
 import ThemeProvider from "./ThemeProvider";
 
@@ -16,9 +16,7 @@ export default () => {
         <ThemeProvider>
           <Router>
             <Navigation />
-            <Switch>
-              <Route exact path={MAIN} component={Main} />
-            </Switch>
+            <Switch></Switch>
           </Router>
         </ThemeProvider>
       </PersistGate>
