@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React, { useState } from "react";
 import Logo from "./components/Logo";
 import "./style.css";
@@ -42,7 +43,15 @@ export default ({ openDrawer }: Props) => {
           <HeaderItem>
             <NavWrapper to={navRoutes.PROJECTS}>Projects</NavWrapper>
           </HeaderItem>
-          <HeaderItem>My resumse</HeaderItem>
+          <HeaderItem>
+            <a
+              href={`${process.env.PUBLIC_URL}/resume.pdf`}
+              target="_blank"
+              style={{ color: palette.text.primary }}
+            >
+              My resume
+            </a>
+          </HeaderItem>
           <HeaderItem>
             <a href={MY_GITHUB} style={{ color: palette.text.primary }}>
               Github
