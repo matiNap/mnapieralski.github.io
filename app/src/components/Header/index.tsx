@@ -1,23 +1,27 @@
-import React from "react";
-import palette from "../../theme/palette";
+import React, { useState } from "react";
 import Logo from "./components/Logo";
 import "./style.css";
-import { IconButton } from "@material-ui/core";
+import { IconButton, useTheme } from "@material-ui/core";
 import { MdMenu } from "react-icons/md";
 import HeaderItem from "./components/HeaderItem";
 import NavWrapper from "../NavWrapper";
 import * as navRoutes from "../../navRoutes";
 import { MY_GITHUB } from "../../globals";
+import ThemeSelector from "./components/ThemeSelector";
 
 interface Props {
   openDrawer: () => void;
 }
 
 export default ({ openDrawer }: Props) => {
+  const { palette } = useTheme();
+
+  const [themeOpened, setThemeOpened] = useState(false);
+  const [anchor, setAnchor] = useState<any>(null);
   return (
     <header
       className="menu-container"
-      style={{ backgroundColor: palette.primary }}
+      style={{ backgroundColor: palette.secondary.dark }}
     >
       <div className="header-menu-icon">
         <IconButton onClick={openDrawer}>
@@ -40,9 +44,22 @@ export default ({ openDrawer }: Props) => {
           </HeaderItem>
           <HeaderItem>My resumse</HeaderItem>
           <HeaderItem>
-            <a href={MY_GITHUB}>Github</a>
+            <a href={MY_GITHUB} style={{ color: palette.text.primary }}>
+              Github
+            </a>
           </HeaderItem>
-          <HeaderItem>Theme</HeaderItem>
+
+          <HeaderItem>
+            <div
+              onClick={(event) => {
+                setAnchor(event.currentTarget);
+                setThemeOpened(!themeOpened);
+              }}
+            >
+              Theme
+            </div>
+            <ThemeSelector opened={themeOpened} anchorEl={anchor} />
+          </HeaderItem>
         </ul>
       </div>
     </header>

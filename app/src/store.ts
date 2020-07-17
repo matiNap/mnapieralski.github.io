@@ -1,29 +1,36 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import { persistStore, persistReducer } from "redux-persist";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import reducer from "./reducer";
 import storage from "redux-persist/lib/storage";
-import thunk from "redux-thunk";
-
-import rootReducer from "./reducers";
+import {
+  persistReducer,
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PURGE,
+  REGISTER,
+  PERSIST,
+} from "redux-persist";
 
 const persistConfig = {
   key: "root",
   storage,
 };
 
-const middlewares = [thunk];
+const persistedReducer = persistReducer(persistConfig, reducer);
 
-const middlewareEnhancer = applyMiddleware(...middlewares);
+const store = configureStore({
+  reducer: persistedReducer,
+  devTools: true,
+  middleware: getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
+});
 
-const enhancers = [middlewareEnhancer];
+export const persistedStore = persistStore(store);
 
-if (
-  process.env.NODE_ENV === "development" &&
-  window["__REDUX_DEVTOOLS_EXTENSION__"]
-) {
-  enhancers.push(window["__REDUX_DEVTOOLS_EXTENSION__"]());
-}
+export default store;
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-export const store = createStore(persistedReducer, compose(...enhancers));
-export const persistor = persistStore(store);
+export type RootState = ReturnType<typeof store.getState>;

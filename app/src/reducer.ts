@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
+import appSlice from "./slices/appSlice";
 
 export default combineReducers({
-  user: {},
+  app: appSlice,
 });

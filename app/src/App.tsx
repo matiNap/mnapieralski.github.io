@@ -2,27 +2,26 @@ import React from "react";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { persistor, store } from "./store";
+import store, { persistedStore } from "./store";
 
 import { MAIN } from "./navRoutes";
 import Main from "./main";
 import Navigation from "./components/Navigation";
-import { ThemeProvider } from "@material-ui/core";
-import materialTheme from "./theme/material";
+import ThemeProvider from "./ThemeProvider";
 
 export default () => {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={materialTheme}>
-        <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={null} persistor={persistedStore}>
+        <ThemeProvider>
           <Router>
             <Navigation />
             <Switch>
               <Route exact path={MAIN} component={Main} />
             </Switch>
           </Router>
-        </PersistGate>
-      </ThemeProvider>
+        </ThemeProvider>
+      </PersistGate>
     </Provider>
   );
 };

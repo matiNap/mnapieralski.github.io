@@ -2,11 +2,12 @@ import React from "react";
 import { GoChevronLeft } from "react-icons/go";
 import DrawerItem from "./components/DrawerItem";
 import "./style.css";
-import palette from "../../theme/palette";
 import * as navRoutes from "../../navRoutes";
 import NavWrapper from "../NavWrapper";
-import { IconButton, Switch } from "@material-ui/core";
+import { IconButton, Switch, useTheme } from "@material-ui/core";
+import { switchTheme, selectDarkTheme } from "../../slices/appSlice";
 import * as globals from "../../globals";
+import { useSelector, useDispatch } from "react-redux";
 
 interface Props {
   opened: boolean;
@@ -15,8 +16,17 @@ interface Props {
 
 export default ({ opened, hideDrawer }: Props) => {
   const drawerContainerStyle = opened ? {} : { left: "-150vw" };
+  const darkTheme = useSelector(selectDarkTheme);
+  const dispatch = useDispatch();
+  const { palette } = useTheme();
   return (
-    <div className="drawer-container" style={drawerContainerStyle}>
+    <div
+      className="drawer-container"
+      style={{
+        backgroundColor: palette.secondary.main,
+        ...drawerContainerStyle,
+      }}
+    >
       <div className="drawer-header">
         <div className="drawer-hide-icon-container">
           <IconButton onClick={hideDrawer}>
@@ -37,11 +47,18 @@ export default ({ opened, hideDrawer }: Props) => {
         </DrawerItem>
         <DrawerItem>My resume</DrawerItem>
         <DrawerItem>
-          <a href={globals.MY_GITHUB}>Github</a>
+          <a href={globals.MY_GITHUB} style={{ color: palette.text.primary }}>
+            Github
+          </a>
         </DrawerItem>
         <DrawerItem>
           Dark theme
-          <Switch name="switchTheme" color="primary" />
+          <Switch
+            value={darkTheme}
+            name="switchTheme"
+            color="primary"
+            onChange={(e, checked) => dispatch(switchTheme)}
+          />
         </DrawerItem>
       </ul>
     </div>
