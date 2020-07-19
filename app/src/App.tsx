@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import store, { persistedStore } from "./store";
+import Main from "./main";
 
 import { MAIN } from "./navRoutes";
 
@@ -16,7 +17,9 @@ export default () => {
         <ThemeProvider>
           <Router>
             <Navigation />
-            <Switch></Switch>
+            <Switch>
+              <Route exact path={MAIN} component={Main} />
+            </Switch>
           </Router>
         </ThemeProvider>
       </PersistGate>
