@@ -36,22 +36,22 @@ export default ({ opened, hideDrawer }: Props) => {
       </div>
 
       <ul className="drawer-list">
-        <DrawerItem>
+        <DrawerItem {...{ hideDrawer }}>
           <NavWrapper to={navRoutes.SKILLS}>Skills</NavWrapper>
         </DrawerItem>
-        <DrawerItem>
+        <DrawerItem {...{ hideDrawer }}>
           <NavWrapper to={navRoutes.EXP}>Experience</NavWrapper>
         </DrawerItem>
-        <DrawerItem>
+        <DrawerItem {...{ hideDrawer }}>
           <NavWrapper to={navRoutes.PROJECTS}>Projects</NavWrapper>
         </DrawerItem>
-        <DrawerItem>My resume</DrawerItem>
-        <DrawerItem>
+        <DrawerItem {...{ hideDrawer }}>My resume</DrawerItem>
+        <DrawerItem {...{ hideDrawer }}>
           <a href={globals.MY_GITHUB} style={{ color: palette.text.primary }}>
             Github
           </a>
         </DrawerItem>
-        <DrawerItem>
+        <DrawerItem {...{ hideDrawer }}>
           Dark theme
           <Switch
             value={darkTheme}

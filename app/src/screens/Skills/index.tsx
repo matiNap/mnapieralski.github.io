@@ -8,13 +8,14 @@ import "./style.css";
 
 export default () => {
   const { skills } = data;
-  const props = useSpring({
+  const animatonProps = useSpring({
+    config: { mass: 5, tension: 500, friction: 80 },
     opacity: 1,
     from: { opacity: 0, marginTop: 1000 },
     marginTop: 0,
   });
   return (
-    <animated.div style={props}>
+    <animated.div style={animatonProps}>
       <Container>
         <h1>Skills</h1>
         <Container className="skills-container">

@@ -7,7 +7,6 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { useTheme } from "@material-ui/core";
 import { RiReactjsLine } from "react-icons/ri";
-import "./style.css";
 import experienceJSON from "./experience.json";
 
 export default () => {
@@ -15,9 +14,9 @@ export default () => {
   const elementContentStyle = {
     backgroundColor: palette.secondary.dark,
     color: palette.text.primary,
-    WebkitBoxShadow: "10px 10px 83px 1px rgba(0,0,0,0.65)",
-    MozBoxShadow: "10px 10px 83px 1px rgba(0,0,0,0.65)",
-    boxShadow: "10px 10px 83px 1px rgba(0,0,0,0.65)",
+    WebkitBoxShadow: "0px 9px 41px -2px rgba(0,0,0,0.53)",
+    MozBoxShadow: "0px 9px 41px -2px rgba(0,0,0,0.53)",
+    boxShadow: "0px 9px 41px -2px rgba(0,0,0,0.53)",
   };
   const iconStyle = {
     backgroundColor: palette.primary.main,
@@ -27,7 +26,7 @@ export default () => {
   const { experience: experienceData } = experienceJSON;
   return (
     <Container>
-      <VerticalTimeline>
+      <VerticalTimeline style={{ zIndex: 0 }}>
         {experienceData.map((experience) => {
           const { subTitle, title, id, tools, tasks, date } = experience;
           return (
