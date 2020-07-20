@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme, Button } from "@material-ui/core";
 import { FaCopy } from "react-icons/fa";
-import { MY_EMAIL } from "../../globals";
+import { MY_EMAIL } from "../../../globals";
 
 export default () => {
   const { palette } = useTheme();

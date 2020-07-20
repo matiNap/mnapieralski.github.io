@@ -1,10 +1,10 @@
 import React from "react";
-import Container from "../components/Container";
+import Container from "../../components/Container";
 import "./style.css";
 import { Divider, useTheme } from "@material-ui/core";
 import EmailWrapper from "./components/EmailWrapper";
-import NavWrapper from "../components/NavWrapper";
-import * as navRoutes from "../navRoutes";
+import NavWrapper from "../../components/NavWrapper";
+import * as navRoutes from "../../navRoutes";
 
 export default () => {
   const { palette } = useTheme();

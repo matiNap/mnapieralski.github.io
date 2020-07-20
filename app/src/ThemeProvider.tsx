@@ -19,7 +19,7 @@ export default ({ children }: Props) => {
         style={{
           color: text.primary,
           backgroundColor: palette.secondary.main,
-          height: "100%",
+          minHeight: "100%",
         }}
       >
         {children}
