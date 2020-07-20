@@ -2,12 +2,9 @@ import React from "react";
 
 export default () => {
   return (
-    <img
-      className="title-img"
-      alt="title"
-      width={241}
-      height={55}
-      src={process.env.PUBLIC_URL + "/title.png"}
-    />
+    <div className="logo-container">
+      <div className="logo-main">Mateusz Napieralski</div>
+      <div className="logo-title">Full stack developer</div>
+    </div>
   );
 };

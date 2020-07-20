@@ -56,6 +56,14 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  .checkbox-theme {
+    width: 25px;
+    height: 25px;
+  }
+
+  .checkbox-checked {
+    color: blue;
+  }
 
   .checkbox-theme-container {
     display: flex;
@@ -68,9 +76,39 @@
     box-shadow: 10px 10px 49px -2px rgba(0, 0, 0, 0.75);
     border-radius: 30px;
   }
+
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 2rem;
+    width: 20rem;
+  }
+  .logo-main {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .logo-title {
+    font-size: 1.3rem;
+  }
 }
 
 @media only screen and (max-width: 600px) {
+  .logo-main {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  .logo-title {
+    font-size: 1.1rem;
+  }
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .menu-container {
     top: 0;
     left: 0;
@@ -96,9 +134,8 @@
   .header-logo-container {
     display: flex;
     align-items: center;
-    flex-grow: 2;
-    align-items: center;
     justify-content: center;
+    flex: 1;
   }
 
   .theme-selector-container {
