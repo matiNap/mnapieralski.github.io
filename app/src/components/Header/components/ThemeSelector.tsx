@@ -37,6 +37,7 @@ export default ({ opened, anchorEl }: Props) => {
         <div className="checkbox-theme-container">
           <Checkbox
             color="primary"
+            classes={{ root: "checkbox-theme" }}
             checked={!darkTheme}
             onChange={() => dispatch(checkDarkTheme(false))}
           />

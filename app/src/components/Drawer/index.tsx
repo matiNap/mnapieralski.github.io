@@ -57,7 +57,9 @@ export default ({ opened, hideDrawer }: Props) => {
             value={darkTheme}
             name="switchTheme"
             color="primary"
-            onChange={(e, checked) => dispatch(switchTheme)}
+            onChange={(e, checked) => {
+              dispatch(switchTheme());
+            }}
           />
         </DrawerItem>
       </ul>
