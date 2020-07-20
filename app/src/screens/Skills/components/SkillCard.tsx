@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import Card from "../../../components/Card";
+import ListPoint from "./ListPoint";
 
 interface Props {
   children?: ReactNode | ReactNode[];
@@ -9,11 +10,11 @@ interface Props {
 
 export default ({ children, title, points }: Props) => {
   return (
-    <Card containerStyle={{ width: "20rem", height: "40rem" }}>
+    <Card className="skills-card">
       <h2>{title}</h2>
       <ul>
         {points.map((point) => (
-          <li>{point}</li>
+          <ListPoint title={point} />
         ))}
       </ul>
     </Card>

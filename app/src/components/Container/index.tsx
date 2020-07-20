@@ -3,17 +3,9 @@ import "./style.css";
 
 interface Props {
   children: ReactNode | ReactNode[];
-  flexDirection?: "row" | "column";
-  justifyContent?: "flex-start" | "flex-end" | "space-between" | "space-around";
+  className?: string;
 }
 
-export default ({ children, flexDirection, justifyContent }: Props) => {
-  return (
-    <div
-      className="content-container"
-      style={{ flexDirection, justifyContent }}
-    >
-      {children}
-    </div>
-  );
+export default ({ children, className }: Props) => {
+  return <div className={`content-container ${className}`}>{children}</div>;
 };
