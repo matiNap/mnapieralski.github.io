@@ -3,7 +3,7 @@ import Header from "../Header";
 import Drawer from "../Drawer";
 
 export default () => {
-  const [drawerOpened, setDrawerOpened] = useState(true);
+  const [drawerOpened, setDrawerOpened] = useState(false);
 
   return (
     <div>

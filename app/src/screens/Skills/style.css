@@ -36,5 +36,8 @@
 
   .skills-card {
     margin-top: 2rem;
+    width: 80vw;
+    align-self: center;
+    display: flex;
   }
 }

@@ -5,11 +5,18 @@ import { Divider, useTheme } from "@material-ui/core";
 import EmailWrapper from "./components/EmailWrapper";
 import NavWrapper from "../../components/NavWrapper";
 import * as navRoutes from "../../navRoutes";
+import { useSpring, animated } from "react-spring";
 
 export default () => {
   const { palette } = useTheme();
+  const animationProps = useSpring({
+    config: { mass: 5, tension: 500, friction: 80 },
+    opacity: 1,
+    from: { opacity: 0, marginTop: 1000 },
+    marginTop: 0,
+  });
   return (
-    <div>
+    <animated.div style={animationProps}>
       <Container>
         <h1>About me</h1>
         <Container>
@@ -50,6 +57,6 @@ export default () => {
           </div>
         </Container>
       </Container>
-    </div>
+    </animated.div>
   );
 };
