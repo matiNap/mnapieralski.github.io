@@ -2,4 +2,37 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   font-family: "Rubik", Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  flex: 1;
+}
+
+#root {
+  height: 100%;
+}
+
+.public-divider {
+  background-color: #aaa;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+body::-webkit-scrollbar {
+  width: 0rem;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--bg-secondary);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 5px;
 }
