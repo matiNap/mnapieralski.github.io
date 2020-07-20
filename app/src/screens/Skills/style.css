@@ -1,0 +1,40 @@
+.skills-point {
+  font-size: 1.2rem;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.skills-bullet {
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+  display: flex;
+  margin-right: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .skills-container {
+    flex-direction: row !important;
+    justify-content: space-between;
+    display: flex;
+  }
+
+  .skills-card {
+    display: flex;
+    flex: 1;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .skills-container {
+    flex-direction: column;
+  }
+
+  .skills-card {
+    margin-top: 2rem;
+  }
+}

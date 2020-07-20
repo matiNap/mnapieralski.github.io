@@ -11,6 +11,19 @@ interface Props {
 export default ({ children }: Props) => {
   const isDarkTheme = useSelector(selectDarkTheme);
   const theme = isDarkTheme ? darkTheme : lightTheme;
-
-  return <ThemeProvider {...{ theme }}>{children}</ThemeProvider>;
+  const { palette } = theme;
+  const { text } = palette;
+  return (
+    <ThemeProvider {...{ theme }}>
+      <div
+        style={{
+          color: text.primary,
+          backgroundColor: palette.secondary.main,
+          minHeight: "100%",
+        }}
+      >
+        {children}
+      </div>
+    </ThemeProvider>
+  );
 };

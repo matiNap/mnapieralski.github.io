@@ -7,6 +7,7 @@ interface Props {
 
 export default ({ children }: Props) => {
   const { palette } = useTheme();
+
   return (
     <li className="menu-item" style={{ color: palette.text.primary }}>
       {children}

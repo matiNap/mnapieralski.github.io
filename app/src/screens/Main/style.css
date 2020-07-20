@@ -1,0 +1,90 @@
+.about-me-text {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.email-wrapper-container {
+  -webkit-box-shadow: inset 10px 9px 34px -17px rgba(0, 0, 0, 0.51);
+  -moz-box-shadow: inset 10px 9px 34px -17px rgba(0, 0, 0, 0.51);
+  box-shadow: inset 10px 9px 34px -17px rgba(0, 0, 0, 0.51);
+}
+
+.content-divider {
+  margin-top: 5vh !important;
+  margin-bottom: 5vh !important;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contact-text {
+  font-size: 1.7rem;
+}
+
+.copy-button {
+  height: 50px !important;
+  width: 50px !important;
+  min-width: 50px !important;
+  display: flex;
+  align-self: center;
+  -webkit-box-shadow: 10px 9px 34px 14px rgba(0, 0, 0, 0.51);
+  -moz-box-shadow: 10px 9px 34px 14px rgba(0, 0, 0, 0.51);
+  box-shadow: 10px 9px 34px 14px rgba(0, 0, 0, 0.51);
+  justify-content: center;
+  border-radius: 10px !important;
+}
+
+.contact-chat-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.copy-label {
+  display: flex;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.contact-chat-link {
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+
+.email-inner-container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.contact-or {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .email-wrapper-container {
+    width: 90vw;
+    display: flex;
+    align-self: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border-radius: 1rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .email-wrapper-container {
+    width: 30vw;
+    display: flex;
+    align-self: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border-radius: 1rem;
+  }
+}
