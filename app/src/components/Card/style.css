@@ -1,0 +1,11 @@
+.card-container {
+  -webkit-box-shadow: 3px 6px 37px 0px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 3px 6px 37px 0px rgba(0, 0, 0, 0.41);
+  box-shadow: 3px 6px 37px 0px rgba(0, 0, 0, 0.41);
+  border-radius: 1.5rem;
+  min-width: 18rem;
+  min-height: 30rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}

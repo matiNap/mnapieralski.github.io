@@ -5,11 +5,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import store, { persistedStore } from "./store";
 import Main from "./screens/Main";
 
-import { MAIN, EXP } from "./navRoutes";
+import { MAIN, EXP, SKILLS } from "./navRoutes";
 
 import Navigation from "./components/Navigation";
 import ThemeProvider from "./ThemeProvider";
 import Experience from "./screens/Experience";
+import Skills from "./screens/Skills";
 
 export default () => {
   return (
@@ -20,7 +21,8 @@ export default () => {
             <Navigation />
             <Switch>
               <Route exact path={EXP} component={Experience} />
-              <Route path={MAIN} component={Main} />
+              <Route exact path={MAIN} component={Main} />
+              <Route exact path={SKILLS} component={Skills} />
             </Switch>
           </Router>
         </ThemeProvider>
