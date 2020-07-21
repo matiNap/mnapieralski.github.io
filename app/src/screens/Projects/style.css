@@ -1,0 +1,128 @@
+.gallery-container {
+  overflow: hidden;
+  display: flex;
+  align-self: center;
+  border-radius: 1rem;
+  width: 20rem;
+}
+
+.project-title {
+  cursor: pointer;
+}
+
+.project-gallery {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.gallery-status {
+  position: absolute;
+  display: flex;
+  width: 20rem;
+  height: 2rem;
+  align-self: flex-end;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.gallery-status-point {
+  width: 11px;
+  height: 11px;
+  border-radius: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.gallery-status-point-checked {
+  -webkit-box-shadow: 10px 0px 43px -12px rgba(0, 0, 0, 0.74);
+  -moz-box-shadow: 10px 0px 43px -12px rgba(0, 0, 0, 0.74);
+  box-shadow: 10px 0px 43px -12px rgba(0, 0, 0, 0.74);
+}
+
+.gallery-image-container {
+  display: flex;
+  float: left;
+  width: 320px;
+  height: 350px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.gallery-image {
+  border-radius: 1rem;
+}
+
+.gallery-controller {
+  position: absolute;
+  display: flex;
+  width: 20rem;
+  height: 5rem;
+  align-self: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.project-description {
+  display: block;
+  font-size: 0.95rem;
+  line-height: normal;
+  height: 6rem;
+  width: 20rem;
+  margin-bottom: 1rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.project-link-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.project-link {
+  text-decoration: underline;
+  margin-left: 1rem;
+  display: block;
+  text-overflow: ellipsis;
+  width: 20rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.project-icon {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+
+@media only screen and (min-width: 600px) {
+  .projects-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+  }
+  .project-tile-card {
+    margin-bottom: 4rem;
+    margin-left: 3.5rem;
+    margin-right: 5rem;
+    height: 38rem;
+    width: 20rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .projects-grid {
+    display: block;
+  }
+  .project-tile-card {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    height: 40rem;
+  }
+}
