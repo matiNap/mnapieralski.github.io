@@ -6,15 +6,11 @@ import EmailWrapper from "./components/EmailWrapper";
 import NavWrapper from "../../components/NavWrapper";
 import * as navRoutes from "../../navRoutes";
 import { useSpring, animated } from "react-spring";
+import { SCREEN_TRANSITION_CONFIG } from "../../globals";
 
 export default () => {
   const { palette } = useTheme();
-  const animationProps = useSpring({
-    config: { mass: 5, tension: 500, friction: 80 },
-    opacity: 1,
-    from: { opacity: 0, marginTop: 1000 },
-    marginTop: 0,
-  });
+  const animationProps = useSpring(SCREEN_TRANSITION_CONFIG);
   return (
     <animated.div style={animationProps}>
       <Container>
