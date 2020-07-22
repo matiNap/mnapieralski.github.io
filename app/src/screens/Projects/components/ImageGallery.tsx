@@ -59,6 +59,7 @@ export default ({ images, selected, setSelectedProject }: Props) => {
               style={{
                 backgroundImage: `url(${image.uri})`,
                 transform: transformX,
+                border: selected ? `3px solid ${palette.secondary.light}` : "",
               }}
             />
           ))}
@@ -70,19 +71,27 @@ export default ({ images, selected, setSelectedProject }: Props) => {
       </div>
       <div className={galleryControllerClass}>
         <IconButton
+          className="gallery-button"
+          style={{
+            backgroundColor: palette.secondary.light,
+          }}
           onClick={() => {
             if (currentImage > 0) setCurrentImage(currentImage - 1);
           }}
         >
-          <GoChevronLeft size={50} color={palette.text.secondary} />
+          <GoChevronLeft size={50} color={palette.text.primary} />
         </IconButton>
         <IconButton
+          className="gallery-button"
+          style={{
+            backgroundColor: palette.secondary.light,
+          }}
           onClick={() => {
             if (currentImage + 1 < images.length)
               setCurrentImage(currentImage + 1);
           }}
         >
-          <GoChevronRight size={50} color={palette.text.secondary} />
+          <GoChevronRight size={50} color={palette.text.primary} />
         </IconButton>
       </div>
     </div>

@@ -35,6 +35,10 @@
     align-self: center;
   }
 
+  .drawer-icon {
+    margin-right: 1rem;
+  }
+
   .drawer-item {
     font-size: 25px;
     margin-top: 1.3vh;
@@ -42,7 +46,7 @@
     display: flex;
     align-items: center;
     width: 90%;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-left: 0;
     cursor: pointer;
   }
