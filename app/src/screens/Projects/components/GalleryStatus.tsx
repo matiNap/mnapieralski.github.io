@@ -6,13 +6,16 @@ interface Props {
   images: any[];
   currentImage: number;
   setCurrentImage: (index: number) => void;
+  selected?: boolean;
 }
 
-export default ({ images, currentImage, setCurrentImage }: Props) => {
+export default ({ images, currentImage, setCurrentImage, selected }: Props) => {
   const { palette } = useTheme();
-
+  const gellryStatusClass = selected
+    ? "gallery-status gallery-status-selected"
+    : "gallery-status";
   return (
-    <div className="gallery-status">
+    <div className={gellryStatusClass}>
       {images.map((_, index) => {
         const checked = index === currentImage;
         const backgroundColor = checked

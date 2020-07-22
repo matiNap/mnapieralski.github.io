@@ -4,36 +4,25 @@ import ImageGallery from "./ImageGallery";
 import { IoLogoGithub } from "react-icons/io";
 import { GoDeviceMobile, GoHome } from "react-icons/go";
 import ProjectLink from "./ProjectLink";
+import { Project } from "../../../types";
 
 interface Props {
-  project: {
-    title: string;
-    description: string;
-    github: string;
-    store: string;
-    emulator: string;
-  };
+  project: Project;
+  setSelectedProject: (project: any) => void;
 }
 
-export default ({
-  project: { title, description, github, store, emulator },
-}: Props) => {
+export default ({ project, setSelectedProject }: Props) => {
+  const { title, description, github, store, emulator, images } = project;
   return (
     <Card className="project-tile-card">
       <ImageGallery
-        images={[
-          {
-            id: 1,
-            uri: `${process.env.PUBLIC_URL}/timer.gif`,
-          },
-          {
-            id: 2,
-            uri: `${process.env.PUBLIC_URL}/edit.jpg`,
-          },
-        ]}
+        {...{ images }}
+        setSelectedProject={() => setSelectedProject(project)}
       />
 
-      <h2 className="project-title">{title}</h2>
+      <h2 className="project-title" onClick={() => setSelectedProject(project)}>
+        {title}
+      </h2>
       <div className="project-description">{description}</div>
       <div className="project-source-links">
         <ProjectLink

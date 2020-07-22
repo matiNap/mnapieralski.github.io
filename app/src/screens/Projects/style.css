@@ -1,9 +1,7 @@
-.gallery-container {
-  overflow: hidden;
-  display: flex;
-  align-self: center;
-  border-radius: 1rem;
-  width: 20rem;
+.preview-exit {
+  position: absolute !important;
+  right: 2vw;
+  top: 2vw;
 }
 
 .project-title {
@@ -26,6 +24,11 @@
   flex-direction: row;
 }
 
+.gallery-status-selected {
+  width: 25rem;
+  align-items: center;
+}
+
 .gallery-status-point {
   width: 11px;
   height: 11px;
@@ -39,31 +42,6 @@
   -webkit-box-shadow: 10px 0px 43px -12px rgba(0, 0, 0, 0.74);
   -moz-box-shadow: 10px 0px 43px -12px rgba(0, 0, 0, 0.74);
   box-shadow: 10px 0px 43px -12px rgba(0, 0, 0, 0.74);
-}
-
-.gallery-image-container {
-  display: flex;
-  float: left;
-  width: 320px;
-  height: 350px;
-
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.gallery-image {
-  border-radius: 1rem;
-}
-
-.gallery-controller {
-  position: absolute;
-  display: flex;
-  width: 20rem;
-  height: 5rem;
-  align-self: center;
-  justify-content: space-between;
-  flex-direction: row;
 }
 
 .project-description {
@@ -93,6 +71,71 @@
   overflow: hidden;
 }
 
+.gallery-container {
+  overflow: hidden;
+  display: flex;
+  align-self: center;
+  border-radius: 1rem;
+  width: 20rem;
+}
+
+.gallery-container-selected {
+  height: 50rem;
+  width: 25rem;
+}
+
+.gallery-main-container {
+  display: flex;
+  width: 100%;
+}
+
+.gallery-main-container-selected {
+  width: 55rem;
+  justify-content: center;
+  align-self: center;
+}
+
+.project-preview-container {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  justify-content: center;
+}
+
+.gallery-image-container {
+  display: flex;
+  float: left;
+  width: 20rem;
+  height: 350px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.gallery-image-container-selected {
+  width: 25rem;
+  height: 760px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+}
+
+.gallery-image {
+  border-radius: 1rem;
+}
+
+.gallery-controller {
+  position: absolute;
+  display: flex;
+  width: 20rem;
+  height: 5rem;
+  align-self: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
 .project-icon {
   display: flex;
   justify-content: center;
@@ -100,6 +143,10 @@
 }
 
 @media only screen and (min-width: 600px) {
+  .gallery-controller-selected {
+    width: 40rem;
+  }
+
   .projects-grid {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -115,10 +162,17 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .gallery-controller-selected {
+    width: 95vw;
+  }
+
   .projects-grid {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .project-tile-card {
+    width: 20rem;
     margin-left: 1rem;
     margin-right: 1rem;
     margin-top: 2rem;
