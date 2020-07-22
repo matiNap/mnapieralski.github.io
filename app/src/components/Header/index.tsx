@@ -53,7 +53,11 @@ export default ({ openDrawer }: Props) => {
             </a>
           </HeaderItem>
           <HeaderItem>
-            <a href={MY_GITHUB} style={{ color: palette.text.primary }}>
+            <a
+              href={MY_GITHUB}
+              style={{ color: palette.text.primary }}
+              target="_blank"
+            >
               Github
             </a>
           </HeaderItem>

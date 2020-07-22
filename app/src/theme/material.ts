@@ -6,7 +6,7 @@ export const lightTheme = createMuiTheme({
       main: "#0089f2",
     },
     secondary: {
-      light: "#ededed",
+      light: "#c6c6c6",
       main: "#eee",
       dark: "#ededed",
     },
