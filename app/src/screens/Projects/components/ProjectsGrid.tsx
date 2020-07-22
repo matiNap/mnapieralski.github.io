@@ -11,7 +11,7 @@ const data = [
     store: "https://g.apps.com",
     emulator: "https://emulator.com",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis sit amet eros semper consequat quis vel urna. Donec tellus mauris Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis sit amet eros semper consequat quis vel urna. Donec tellus mauris,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis sit amet eros semper consequat quis vel urna. Donec tellus mauris,",
+      "Lorem ipsum  iquat quis vel urna. Donec tellus mauris Lorem ipsum  iquat quis vel urna. Donec tellus mauris us maur, s us maur,s us maur,s us maur,s us maur,s us maur,",
     images: [
       {
         id: 1,
