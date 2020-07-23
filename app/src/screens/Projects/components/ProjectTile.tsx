@@ -1,8 +1,8 @@
 import React from "react";
 import Card from "../../../components/Card";
 import ImageGallery from "./ImageGallery";
-import { IoLogoGithub } from "react-icons/io";
-import { GoDeviceMobile, GoHome } from "react-icons/go";
+import { GoDeviceMobile } from "react-icons/go";
+import { FiGithub, FiHome } from "react-icons/fi";
 import ProjectLink from "./ProjectLink";
 import { Project } from "../../../types";
 
@@ -27,7 +27,7 @@ export default ({ project, setSelectedProject }: Props) => {
       <div className="project-source-links">
         <ProjectLink
           link={github}
-          renderIcon={(iconProps) => <IoLogoGithub {...iconProps} />}
+          renderIcon={(iconProps) => <FiGithub {...iconProps} />}
         />
         {emulator && (
           <ProjectLink
@@ -38,7 +38,7 @@ export default ({ project, setSelectedProject }: Props) => {
         {store && (
           <ProjectLink
             link={store}
-            renderIcon={(iconProps) => <GoHome {...iconProps} />}
+            renderIcon={(iconProps) => <FiHome {...iconProps} />}
           />
         )}
       </div>

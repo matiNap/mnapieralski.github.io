@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import Container from "../../components/Container";
 import {
   VerticalTimeline,
@@ -7,10 +7,18 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { useTheme } from "@material-ui/core";
 import { RiReactjsLine } from "react-icons/ri";
-import experienceJSON from "./experience.json";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchExperience, selectExperience } from "../../slices/appSlice";
+import Loading from "../../components/Loading";
 
 export default () => {
   const { palette } = useTheme();
+  const experienceData = useSelector(selectExperience);
+  const dispatch = useDispatch();
+  useLayoutEffect(() => {
+    dispatch(fetchExperience());
+  }, [dispatch]);
+
   const elementContentStyle = {
     backgroundColor: palette.secondary.dark,
     color: palette.text.primary,
@@ -23,33 +31,36 @@ export default () => {
     color: "#fff",
     fontSize: "50px",
   };
-  const { experience: experienceData } = experienceJSON;
-  return (
-    <Container>
-      <VerticalTimeline style={{ zIndex: 0 }}>
-        {experienceData.map((experience) => {
-          const { subTitle, title, id, tools, tasks, date } = experience;
-          return (
-            <VerticalTimelineElement
-              key={`timeline${id}`}
-              className="vertical-timeline-element--work timeline-item-container"
-              contentStyle={elementContentStyle}
-              contentArrowStyle={{
-                borderRight: `7px solid ${palette.primary.main}`,
-              }}
-              date={date}
-              iconStyle={iconStyle}
-              icon={<RiReactjsLine />}
-            >
-              <h3 className="vertical-timeline-element-title">{title}</h3>
-              <h4 className="vertical-timeline-element-subtitle">{subTitle}</h4>
-              <p>{tasks}</p>
-              <h3>Tools: </h3>
-              <p>{tools}</p>
-            </VerticalTimelineElement>
-          );
-        })}
-      </VerticalTimeline>
-    </Container>
-  );
+  if (experienceData) {
+    return (
+      <Container>
+        <VerticalTimeline style={{ zIndex: 0 }}>
+          {experienceData.map((experience) => {
+            const { subTitle, title, id, tools, tasks, date } = experience;
+            return (
+              <VerticalTimelineElement
+                key={`timeline${id}`}
+                className="vertical-timeline-element--work timeline-item-container"
+                contentStyle={elementContentStyle}
+                contentArrowStyle={{
+                  borderRight: `7px solid ${palette.primary.main}`,
+                }}
+                date={date}
+                iconStyle={iconStyle}
+                icon={<RiReactjsLine />}
+              >
+                <h3 className="vertical-timeline-element-title">{title}</h3>
+                <h4 className="vertical-timeline-element-subtitle">
+                  {subTitle}
+                </h4>
+                <p>{tasks}</p>
+                <h3>Tools: </h3>
+                <p>{tools}</p>
+              </VerticalTimelineElement>
+            );
+          })}
+        </VerticalTimeline>
+      </Container>
+    );
+  } else return <Loading />;
 };
