@@ -29,7 +29,9 @@ jobs:
       
     - name: Build
       run: npm run build
-      
+      env:
+          REACT_APP_FIREBASE_CONFIG:  ${{ secrets.REACT_APP_FIREBASE_CONFIG }}
+              
     - name: Deploy
       run: |
           git config --global user.name $user_name
