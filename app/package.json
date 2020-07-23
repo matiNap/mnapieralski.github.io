@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://matinap.github.io/",
+  "homepage": "https://matinap.github.io/portfolio",
   "private": true,
   "dependencies": {
     "@emotion/core": "^10.0.28",
