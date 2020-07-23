@@ -14,7 +14,7 @@ export default ({ children, title, points }: Props) => {
       <h2>{title}</h2>
       <ul>
         {points.map((point) => (
-          <ListPoint title={point} />
+          <ListPoint title={point} key={point} />
         ))}
       </ul>
     </Card>

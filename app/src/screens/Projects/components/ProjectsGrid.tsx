@@ -1,81 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import ProjectTile from "./ProjectTile";
 import "../style.css";
 import ProjectPreview from "./ProjectPreview";
-
-const data = [
-  {
-    id: "1",
-    title: "Workout timer",
-    github: "https://github.comhttps://github.comhttps://github.com",
-    store: "https://g.apps.com",
-    emulator: "https://emulator.com",
-    description:
-      "Lorem ipsum  iquat quis vel urna. Donec tellus mauris Lorem ipsum  iquat quis vel urna. Donec tellus mauris us maur, s us maur,s us maur,s us maur,s us maur,s us maur,",
-    images: [
-      {
-        id: 1,
-        uri: `${process.env.PUBLIC_URL}/timer.gif`,
-      },
-      {
-        id: 2,
-        uri: `${process.env.PUBLIC_URL}/edit.jpg`,
-      },
-    ],
-  },
-  {
-    id: "2",
-    title: "Workout timer",
-    github: "https://github.com",
-    store: "https://g.apps.com",
-    emulator: "https://emulator.com",
-    description: "Description",
-    images: [
-      {
-        id: 1,
-        uri: `${process.env.PUBLIC_URL}/timer.gif`,
-      },
-      {
-        id: 2,
-        uri: `${process.env.PUBLIC_URL}/edit.jpg`,
-      },
-    ],
-  },
-  {
-    id: "3",
-    title: "Workout timer",
-    github: "https://github.com",
-    store: "https://g.apps.com",
-    emulator: "https://emulator.com",
-    description: "Description",
-    images: [
-      {
-        id: 1,
-        uri: `${process.env.PUBLIC_URL}/timer.gif`,
-      },
-      {
-        id: 2,
-        uri: `${process.env.PUBLIC_URL}/edit.jpg`,
-      },
-    ],
-  },
-];
+import { useSelector, useDispatch } from "react-redux";
+import { selectProjects, fetchProjects } from "../../../slices/appSlice";
+import Loading from "../../../components/Loading";
 
 export default () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  return (
-    <div className="projects-grid">
-      {data.map((current) => (
-        <ProjectTile
-          key={`project${current.id}`}
-          project={current}
-          {...{ setSelectedProject }}
+  const dispatch = useDispatch();
+  useLayoutEffect(() => {
+    dispatch(fetchProjects());
+  }, [dispatch]);
+  const projects = useSelector(selectProjects);
+  if (projects) {
+    return (
+      <div className="projects-grid">
+        {projects.map((current) => (
+          <ProjectTile
+            key={`project${current.id}`}
+            project={current}
+            {...{ setSelectedProject }}
+          />
+        ))}
+        <ProjectPreview
+          selected={selectedProject}
+          exit={() => setSelectedProject(null)}
         />
-      ))}
-      <ProjectPreview
-        selected={selectedProject}
-        exit={() => setSelectedProject(null)}
-      />
-    </div>
-  );
+      </div>
+    );
+  } else return <Loading />;
 };

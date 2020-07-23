@@ -3,10 +3,9 @@ import { animated, useSpring } from "react-spring";
 import { GoChevronRight, GoChevronLeft } from "react-icons/go";
 import { useTheme, IconButton } from "@material-ui/core";
 import GalleryStatus from "./GalleryStatus";
-import { ProjectImage } from "../../../types";
 
 interface Props {
-  images: ProjectImage[];
+  images: string[];
   selected?: boolean;
   setSelectedProject?: () => void;
 }
@@ -54,10 +53,10 @@ export default ({ images, selected, setSelectedProject }: Props) => {
         >
           {images.map((image) => (
             <animated.div
-              key={image.id}
+              key={image}
               className={imageContainerClass}
               style={{
-                backgroundImage: `url(${image.uri})`,
+                backgroundImage: `url(${image})`,
                 transform: transformX,
                 border: selected ? `3px solid ${palette.secondary.light}` : "",
               }}

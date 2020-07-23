@@ -5,10 +5,12 @@ export interface Project {
   github: string;
   store: string;
   emulator: string;
-  images: ProjectImage[];
+  images: string[];
 }
 
-export interface ProjectImage {
-  id: number | string;
-  uri: string;
+export interface SkillsType {
+  technologies?: string[];
+  databases?: string[];
+  others?: string[];
+  ui?: string[];
 }
