@@ -37,6 +37,7 @@ jobs:
           git remote set-url origin https://${github_token}@github.com/${repository}
           npm run deploy
       env:
+          REACT_APP_TEST_VAR: 'test'
           REACT_APP_FIREBASE_CONFIG:  ${{secrets.REACT_APP_FIREBASE_CONFIG}}
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
