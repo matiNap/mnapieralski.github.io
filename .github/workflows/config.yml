@@ -28,13 +28,7 @@ jobs:
       run: npm install
       
     - name: Build
-      run: |
-          export REACT_APP_TEST_VAR=test
-          echo $REACT_APP_TEST_VAR
-          touch .env
-          echo "REACT_APP_TEST_VAR=test" >> .env
-          cat .env
-          npm run build
+      run: npm run build
       env:
           REACT_APP_FIREBASE_CONFIG:  ${{ secrets.REACT_APP_FIREBASE_CONFIG }}
               
