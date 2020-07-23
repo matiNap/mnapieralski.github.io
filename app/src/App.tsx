@@ -4,7 +4,6 @@ import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import store, { persistedStore } from "./store";
 import Main from "./screens/Main";
-
 import { MAIN, EXP, SKILLS, PROJECTS } from "./navRoutes";
 
 import Navigation from "./components/Navigation";
