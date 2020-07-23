@@ -14,7 +14,7 @@
   margin-right: 1rem;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
   .skills-container {
     flex-direction: row !important;
     justify-content: space-between;
@@ -29,7 +29,7 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .skills-container {
     flex-direction: column;
   }
@@ -39,5 +39,6 @@
     width: 80vw;
     align-self: center;
     display: flex;
+    margin-bottom: 1rem;
   }
 }

@@ -1,6 +1,5 @@
-export const MAIN = "/";
-export const CHAT = "/chat";
-export const SKILLS = "/skills";
-export const EXP = "/experience";
-export const PROJECTS = "/projects";
-export const RESUME = `${process.env.PUBLIC_URL}/resume.pdf`;
+export const MAIN = "/portfolio";
+export const SKILLS = `${MAIN}/skills`;
+export const EXP = `${MAIN}/experience`;
+export const PROJECTS = `${MAIN}/projects`;
+export const RESUME = `${MAIN}/${process.env.PUBLIC_URL}/resume.pdf`;
