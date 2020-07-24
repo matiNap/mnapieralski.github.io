@@ -25,8 +25,8 @@ export default ({ openDrawer }: Props) => {
       style={{ backgroundColor: palette.secondary.dark }}
     >
       <div className="header-menu-icon">
-        <IconButton onClick={openDrawer}>
-          <MdMenu size={50} color={palette.text.primary} />
+        <IconButton onClick={openDrawer} className="menu-button">
+          <MdMenu size={45} color={palette.text.primary} />
         </IconButton>
       </div>
       <div className="header-logo-container">

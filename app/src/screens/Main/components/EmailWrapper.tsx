@@ -12,7 +12,9 @@ export default () => {
       style={{ backgroundColor: palette.secondary.light }}
     >
       <div className="email-inner-container">
-        <p style={{ color: palette.text.primary }}>{MY_EMAIL}</p>
+        <p style={{ color: palette.text.primary }} className="email-value">
+          {MY_EMAIL}
+        </p>
       </div>
       <Button
         onClick={() => {

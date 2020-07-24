@@ -99,7 +99,10 @@
     font-size: 1.3rem;
     font-weight: bold;
   }
-
+  .header-menu-icon {
+    position: absolute;
+    height: 10vh;
+  }
   .logo-title {
     font-size: 1.1rem;
   }
@@ -121,6 +124,9 @@
     -webkit-box-shadow: -9px 3px 31px -9px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -9px 3px 31px -9px rgba(0, 0, 0, 0.75);
     box-shadow: -9px 3px 31px -9px rgba(0, 0, 0, 0.75);
+  }
+  .menu-button {
+    height: 100%;
   }
 
   .menu {

@@ -55,9 +55,7 @@
 }
 
 .email-inner-container {
-  display: flex;
-  flex: 1;
-  align-items: center;
+  width: 70%;
 }
 
 .contact-or {
@@ -67,15 +65,23 @@
   font-size: 1.5rem;
 }
 
+.email-value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
 @media only screen and (max-width: 800px) {
   .email-wrapper-container {
-    width: 90vw;
+    width: 85%;
     display: flex;
     align-self: center;
     padding-right: 1rem;
     padding-left: 1rem;
     border-radius: 1rem;
     margin-bottom: 2rem;
+    justify-content: space-between;
   }
 }
 
@@ -87,5 +93,6 @@
     padding-right: 1rem;
     padding-left: 1rem;
     border-radius: 1rem;
+    justify-content: space-between;
   }
 }

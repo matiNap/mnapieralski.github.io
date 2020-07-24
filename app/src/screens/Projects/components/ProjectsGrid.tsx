@@ -16,7 +16,7 @@ export default () => {
   if (projects) {
     return (
       <div className="projects-grid">
-        {projects.map((current) => (
+        {[...projects, ...projects, ...projects].map((current) => (
           <ProjectTile
             key={`project${current.id}`}
             project={current}
