@@ -10,20 +10,10 @@ interface Props {
   setSelectedProject?: () => void;
 }
 
-const IMAGE_WIDTH = 20;
-const IMAGE_WIDTH_SELECTED = 25;
-
 export default ({ images, selected, setSelectedProject }: Props) => {
   const [currentImage, setCurrentImage] = useState(0);
-  const imageWidth = selected ? IMAGE_WIDTH_SELECTED : IMAGE_WIDTH;
   const { palette } = useTheme();
-  const { x } = useSpring({ x: currentImage });
-  const transformX = x
-    .interpolate({
-      range: images.map((_, index) => index),
-      output: images.map((_, index) => imageWidth * index),
-    })
-    .interpolate((currentX) => `translateX(-${currentX}rem)`);
+
   const galleryMainContainer = selected
     ? "gallery-main-container gallery-main-container-selected"
     : "gallery-main-container";
@@ -37,62 +27,66 @@ export default ({ images, selected, setSelectedProject }: Props) => {
     ? "gallery-controller gallery-controller-selected"
     : "gallery-controller";
   return (
-    <div className={galleryMainContainer}>
-      <div
-        className={containerClass}
-        style={{ cursor: !selected ? "pointer" : "" }}
-      >
+    <div className="gallery-selected">
+      <div className={galleryMainContainer}>
         <div
-          className="project-gallery"
+          className={containerClass}
+          style={{ cursor: !selected ? "pointer" : "" }}
           onClick={() => {
             if (setSelectedProject) setSelectedProject();
           }}
-          style={{
-            width: `${images.length * imageWidth}rem`,
-          }}
         >
-          {images.map((image) => (
-            <animated.div
-              key={image}
-              className={imageContainerClass}
-              style={{
-                backgroundImage: `url(${image})`,
-                transform: transformX,
-                border: selected ? `3px solid ${palette.secondary.light}` : "",
-              }}
-            />
-          ))}
+          <div className="project-gallery">
+            {images.map((image, index) => {
+              const { x } = useSpring({ x: currentImage === index ? 1 : 0 });
+              const opacityValue = x.interpolate({
+                range: [0, 1],
+                output: [0, 1],
+              });
+              return (
+                <animated.div
+                  key={image}
+                  className={imageContainerClass}
+                  style={{
+                    backgroundImage: `url(${image})`,
+                    opacity: opacityValue,
+                  }}
+                />
+              );
+            })}
+          </div>
         </div>
 
-        <GalleryStatus
-          {...{ images, setCurrentImage, currentImage, selected }}
-        />
+        <div className={galleryControllerClass}>
+          <IconButton
+            className="gallery-button"
+            style={{
+              backgroundColor: palette.secondary.light,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            onClick={() => {
+              if (currentImage > 0) setCurrentImage(currentImage - 1);
+            }}
+            classes={{ label: "switch-icon" }}
+          >
+            <GoChevronLeft size={50} color={palette.text.primary} />
+          </IconButton>
+          <IconButton
+            className="gallery-button"
+            style={{
+              backgroundColor: palette.secondary.light,
+            }}
+            onClick={() => {
+              if (currentImage + 1 < images.length)
+                setCurrentImage(currentImage + 1);
+            }}
+          >
+            <GoChevronRight size={50} color={palette.text.primary} />
+          </IconButton>
+        </div>
       </div>
-      <div className={galleryControllerClass}>
-        <IconButton
-          className="gallery-button"
-          style={{
-            backgroundColor: palette.secondary.light,
-          }}
-          onClick={() => {
-            if (currentImage > 0) setCurrentImage(currentImage - 1);
-          }}
-        >
-          <GoChevronLeft size={50} color={palette.text.primary} />
-        </IconButton>
-        <IconButton
-          className="gallery-button"
-          style={{
-            backgroundColor: palette.secondary.light,
-          }}
-          onClick={() => {
-            if (currentImage + 1 < images.length)
-              setCurrentImage(currentImage + 1);
-          }}
-        >
-          <GoChevronRight size={50} color={palette.text.primary} />
-        </IconButton>
-      </div>
+      <GalleryStatus {...{ images, setCurrentImage, currentImage, selected }} />
     </div>
   );
 };

@@ -5,13 +5,30 @@
   flex-direction: row;
   align-items: center;
 }
+.skills-point-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.skills-list {
+  padding-left: 0.7rem;
+}
 
 .skills-bullet {
-  width: 15px;
-  height: 15px;
+  max-width: 15px;
+  max-height: 15px;
+  min-width: 15px;
+  min-height: 15px;
   border-radius: 5px;
   display: flex;
   margin-right: 1rem;
+}
+
+.skills-header {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media only screen and (min-width: 800px) {
@@ -24,8 +41,9 @@
   .skills-card {
     display: flex;
     flex: 1;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    min-width: 12vw !important;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
   }
 }
 

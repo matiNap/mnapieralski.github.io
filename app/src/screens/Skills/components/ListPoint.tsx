@@ -13,7 +13,7 @@ export default ({ title }: Props) => {
         className="skills-bullet"
         style={{ backgroundColor: palette.primary.main }}
       />
-      <div>{title}</div>
+      <div className="skills-point-content">{title}</div>
     </li>
   );
 };
