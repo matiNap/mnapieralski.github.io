@@ -4,6 +4,9 @@
   top: 2vw;
 }
 
+.preview-modal {
+  background-color: rgba(0, 0, 0, 0.75);
+}
 .project-title {
   cursor: pointer;
 }

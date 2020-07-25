@@ -45,7 +45,7 @@ export default ({ openDrawer }: Props) => {
           </HeaderItem>
           <HeaderItem>
             <a
-              href={`${process.env.PUBLIC_URL}/resume.pdf`}
+              href={navRoutes.RESUME}
               target="_blank"
               style={{ color: palette.text.primary }}
             >

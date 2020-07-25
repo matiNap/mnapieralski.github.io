@@ -48,10 +48,7 @@ const appSlice = createSlice({
   },
   extraReducers: {
     [REHYDRATE]: (state) => {
-      return {
-        ...initialState,
-        darkTheme: state.darkTheme,
-      };
+      return state;
     },
   },
 });
