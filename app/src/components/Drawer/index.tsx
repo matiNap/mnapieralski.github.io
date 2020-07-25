@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from "react";
 import { GoChevronLeft } from "react-icons/go";
 import {
@@ -76,7 +77,13 @@ export default ({ opened, hideDrawer }: Props) => {
             size={ICON_SIZE}
             color={palette.text.primary}
           />
-          My resume
+          <a
+            href={navRoutes.RESUME}
+            target="_blank"
+            style={{ color: palette.text.primary }}
+          >
+            My resume
+          </a>
         </DrawerItem>
         <DrawerItem {...{ hideDrawer }}>
           <FiGithub

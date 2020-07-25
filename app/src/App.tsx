@@ -6,11 +6,12 @@ import store, { persistedStore } from "./store";
 import Main from "./screens/Main";
 import { MAIN, EXP, SKILLS, PROJECTS } from "./navRoutes";
 
-import Navigation from "./components/Navigation";
 import ThemeProvider from "./ThemeProvider";
 import Experience from "./screens/Experience";
 import Skills from "./screens/Skills";
 import Projects from "./screens/Projects";
+import NotFound from "./screens/NotFound";
+import withNavigation from "./hocs/withNavigation";
 
 export default () => {
   return (
@@ -18,12 +19,16 @@ export default () => {
       <PersistGate loading={null} persistor={persistedStore}>
         <ThemeProvider>
           <Router>
-            <Navigation />
             <Switch>
-              <Route exact path={EXP} component={Experience} />
-              <Route exact path={MAIN} component={Main} />
-              <Route exact path={SKILLS} component={Skills} />
-              <Route exact path={PROJECTS} component={Projects} />
+              <Route exact path={MAIN} component={withNavigation(Main)} />
+              <Route exact path={SKILLS} component={withNavigation(Skills)} />
+              <Route exact path={EXP} component={withNavigation(Experience)} />
+              <Route
+                exact
+                path={PROJECTS}
+                component={withNavigation(Projects)}
+              />
+              <Route component={NotFound} />
             </Switch>
           </Router>
         </ThemeProvider>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, IconButton, useTheme } from "@material-ui/core";
+import { Modal, IconButton } from "@material-ui/core";
 import ImageGallery from "./ImageGallery";
 import { Project } from "../../../types";
 import { animated, useSpring } from "react-spring";
@@ -11,7 +11,6 @@ interface Props {
 }
 
 export default ({ selected, exit }) => {
-  const { palette } = useTheme();
   const { opacity } = useSpring({
     opacity: Boolean(selected) ? 1 : 0,
     config: {
@@ -24,14 +23,14 @@ export default ({ selected, exit }) => {
   });
 
   return (
-    <Modal open={selected !== null}>
+    <Modal open={selected !== null} className="preview-modal">
       <animated.div
         className="project-preview-container"
         style={{ opacity: opacityTransform }}
       >
         {selected && <ImageGallery images={selected.images} selected />}
         <IconButton onClick={() => exit()} classes={{ root: "preview-exit" }}>
-          <GoX color={palette.text.secondary} size={50} />
+          <GoX color="#fff" size={50} />
         </IconButton>
       </animated.div>
     </Modal>
