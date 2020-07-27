@@ -57,8 +57,8 @@
 .project-description {
   font-size: 0.95rem;
   line-height: normal;
-  height: 3.5rem;
-  width: 20rem;
+  height: 7rem;
+  /* width: 20rem; */
   margin-bottom: 1rem;
   overflow: hidden;
   display: block;
@@ -200,7 +200,7 @@
     margin-left: 3.5rem;
     margin-right: 5rem;
     min-width: 10rem !important;
-    height: 38rem;
+    height: 45rem;
   }
 }
 
