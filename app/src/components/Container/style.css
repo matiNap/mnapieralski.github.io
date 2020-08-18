@@ -5,4 +5,5 @@
   flex-direction: column;
   padding-top: 2vh;
   line-height: 2.2rem;
+  /* min-height: 90vh; */
 }

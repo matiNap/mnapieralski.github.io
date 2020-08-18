@@ -12,6 +12,7 @@ import Skills from "./screens/Skills";
 import Projects from "./screens/Projects";
 import NotFound from "./screens/NotFound";
 import withNavigation from "./hocs/withNavigation";
+import withFooter from "./hocs/withFooter";
 
 export default () => {
   return (
@@ -20,13 +21,25 @@ export default () => {
         <ThemeProvider>
           <Router>
             <Switch>
-              <Route exact path={MAIN} component={withNavigation(Main)} />
-              <Route exact path={SKILLS} component={withNavigation(Skills)} />
-              <Route exact path={EXP} component={withNavigation(Experience)} />
+              <Route
+                exact
+                path={MAIN}
+                component={withNavigation(withFooter(Main))}
+              />
+              <Route
+                exact
+                path={SKILLS}
+                component={withNavigation(withFooter(Skills))}
+              />
+              <Route
+                exact
+                path={EXP}
+                component={withNavigation(withFooter(Experience))}
+              />
               <Route
                 exact
                 path={PROJECTS}
-                component={withNavigation(Projects)}
+                component={withNavigation(withFooter(Projects))}
               />
               <Route component={NotFound} />
             </Switch>

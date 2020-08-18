@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import "./style.css";
+import { useTheme } from "@material-ui/core";
 
 interface Props {
   children: ReactNode | ReactNode[];
@@ -7,5 +8,13 @@ interface Props {
 }
 
 export default ({ children, className }: Props) => {
-  return <div className={`content-container ${className}`}>{children}</div>;
+  const { palette } = useTheme();
+  return (
+    <div
+      className={`content-container ${className}`}
+      style={{ backgroundColor: palette.secondary.main }}
+    >
+      {children}
+    </div>
+  );
 };
