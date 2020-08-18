@@ -1,0 +1,18 @@
+.footer-container {
+  display: flex;
+  height: 3.5rem;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  -webkit-box-shadow: 0px -5px 48px -21px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px -5px 48px -21px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px -5px 48px -21px rgba(0, 0, 0, 0.75);
+}
+
+.footer-link {
+  margin-left: 1rem;
+  font-size: 1.1rem;
+}
