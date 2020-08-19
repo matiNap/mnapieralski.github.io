@@ -7,7 +7,7 @@ export default () => {
     <NavWrapper to={MAIN}>
       <div className="logo-container">
         <div className="logo-main">Mateusz Napieralski</div>
-        <div className="logo-title">Full stack developer</div>
+        <div className="logo-title">Frontend Developer</div>
       </div>
     </NavWrapper>
   );
